@@ -1,0 +1,24 @@
+
+    <div class="card">
+
+        <h5 class="card-header">Login</h5>
+        <div class="card-body">
+            <form #userlogin="ngForm" (ngSubmit)="OnClick()">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" name="email" [(ngModel)]="registeredUser.email" id="exampleInputEmail1" aria-describedby="emailHelp" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                
+                <small class="text-danger" [class.d-none]="email.valid || email.touched">Enter a valid Email</small>
+              </div>
+               
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                 <input type="password" class="form-control" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" name="password" [(ngModel)]="registeredUser.password" id="exampleInputPassword1" required minlength="6" pattern="">
+                <small class="text-danger" [class.d-none]="password.valid || password.touched">Required 6 characters</small>
+                </div>
+                
+                <button type="submit" [disabled]="userlogin.form.invalid" class="btn btn-primary" >Submit</button>
+              </form> 
+        </div>
+      </div>
+
